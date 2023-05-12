@@ -1,0 +1,233 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+	
+		<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+	
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registrar Cliente</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
+	rel="stylesheet">
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+	crossorigin="anonymous"></script>
+<!-- Bootstrap icon -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<!-- Custom CSS  -->
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/login.css">
+</head>
+<body class="vh-100">
+	<div class="d-flex justify-content-center align-items-center">
+
+		<div
+			class="d-inline-block vh-100 flex-shrink-1 p-3 align-items-center flex-shrink-1 justify-content-center d-flex flex-column shadow"
+			style="background-color: #FFF6EA; width: 50vw;">
+			<img alt="" src="./img/Makako Burger - Fondo.png">
+		</div>
+
+		<div class="login d-inline-block border shadow">
+
+			<h2 class="text-center">Registrarse</h2>
+
+			<form action="ClienteController" class="d-flex flex-column gap-4"method="post" id="form">
+
+				<input type="hidden" name="type" value="RegistrarCliente">
+
+
+				<div class="row">
+					<label class="col-sm-3 col-form-label">Nombre</label>
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="txtName"
+							placeholder="Ingrese su nombre...">
+					</div>
+
+
+
+				</div>
+
+
+				<div class="row">
+					<label class="col-sm-3 col-form-label">Apellido</label>
+
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="txtApellido"
+							placeholder="Ingrese su apellido...">
+					</div>
+
+				</div>
+
+
+				<div class="row">
+					<label class="col-sm-3 col-form-label">DNI</label>
+
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="TxtDni"
+							placeholder="88888888">
+
+					</div>
+
+				</div>
+				
+						<c:if test="${DniMensaje!=null}">
+						
+							<p class="text-danger">${DniMensaje}</p>
+						
+						</c:if>
+				
+				
+				
+				<div class="row">
+					<label class="col-sm-3 col-form-label">Correo</label>
+
+
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="txtCorreo"
+							placeholder="user@gmail.com">
+					</div>
+
+
+				</div>
+				
+						<c:if test="${ValidarCorreo!=null}">
+						
+							<p class="text-danger">${ValidarCorreo}</p>
+						
+						</c:if>
+				
+
+				<div class="row">
+					<label class="col-sm-3 col-form-label">Contra</label>
+
+
+					<div class="col-sm-9">
+						<input class="form-control" type="password" name="txtContraseña"
+							placeholder="********">
+					</div>
+
+
+				</div>
+
+
+
+				<input type="submit" class="btn btn-primary" name="nameBtn"value="Registrar">
+					
+						
+
+
+			</form>
+			<div class="row pt-2 text-center">
+				<label for="colFormLabelExample" class="col-7 col-form">¿Ya tienes cuenta?</label>
+				<div class="col-sm-5">
+					<a href="login.jsp" class="text-end">Inicia Session</a>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+<!-- Custom JavaScript -->
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+<script type="text/javascript">
+/**
+ * 
+ */
+
+ $(document).ready(function(){
+	$('#form').bootstrapValidator({
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			txtName: {
+				validators: {
+					notEmpty: {
+						message: "El campo es obligatorio"
+					},
+					stringLength : {
+                        min : 5,
+                        max : 50,
+                        message : "El campo requiere min 5 y max 60 caracteres"
+                    }
+				}
+			},
+			txtApellido: {
+				validators: {
+					notEmpty: {
+						message: "El campo es obligatorio"
+					},
+                    stringLength : {
+                        min : 5,
+                        max : 50,
+                        message : "El campo requiere min 5 y max 60 caracteres"
+                    }
+				}
+			},
+			TxtDni:{
+                validators:{
+                    notEmpty:{
+                        message: "El campo es obligatorio"
+                    },
+                    regexp:{
+                        regexp:/^[0-9]{8}$/,
+                        message:"Formato de Dni incorrecto"
+
+                    }
+                }
+			},
+			txtCorreo:{
+				validators:{
+					notEmpty:{
+						message:"El campo es obligatorio"
+					},
+					regexp: {
+						regexp:/^[A-Za-z0-9._]+@[a-z]{4,8}(\.[a-z]{2,4}){1,2}$/,
+						message: "El formato de correo es incorrecto"
+					}
+					}
+					
+			},
+				txtContraseña:{
+				validators:{
+					notEmpty:{
+						message:"El campo es obligatorio"
+					}
+				}
+			}
+			
+
+		}
+
+	});
+	
+	$('#nameBtn').click(function(){
+		$('#form').bootstrapValidator('validate');
+	});
+	
+});
+
+
+</script>
+</html>

@@ -1,0 +1,16 @@
+package com.clinica.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/validar")
+public class ValidarController {
+
+	@RequestMapping("/usuario")
+	public String index() {
+		return "login";
+	}
+	
+	
+}

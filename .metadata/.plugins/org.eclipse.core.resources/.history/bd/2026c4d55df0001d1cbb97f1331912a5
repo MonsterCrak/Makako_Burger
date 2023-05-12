@@ -1,0 +1,9 @@
+server.port=8091
+spring.jpa.database=MYSQL
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/Makako_Burger?serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=mysql
+spring.resources.add-mappings=true
+spring.security.user.name=jhoset
+spring.security.user.password=123

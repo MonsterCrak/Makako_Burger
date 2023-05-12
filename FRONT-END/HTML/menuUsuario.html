@@ -1,0 +1,120 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makako Burger Café</title>
+<!--CSS ESTILOS BOOTSTRAP-->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap-theme.css">
+<link rel="stylesheet" href="./css/estilosUsuario.css">
+<link rel="" href="./css/bootstrap-utilities.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+	integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&family=Raleway:wght@500&family=Secular+One&display=swap"
+	rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/88862e25c2.js"
+	crossorigin="anonymous"></script>
+<!--CSS ESTILOS-->
+<link rel="stylesheet" href="./css/cssCarousel.css">
+</head>
+<body >
+
+
+	<div class="p-0">
+
+		<%@ include file="snippets/headerIndexUser.jsp"%>
+
+		<!--CUERPO DE PÁGINA-->
+		<div class="container mb-4">
+
+			<div class="border-bottom">
+
+				<h1 class="d-flex align-items-center titulo ">
+					<img
+						src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-monkey-animal-flaticons-lineal-color-flat-icons-3.png"
+						class="me-2" />MENÚ MAKAKO
+				</h1>
+
+
+			</div>
+
+			<div class="d-flex wrap justify-content-around container my-4">
+
+				<div class="w-50">
+
+					<figure class="figure m-4  ">
+						<img src="./svg/hamburguesas.jpg"
+							class="figure-img img-fluid rounded shadow" alt="...">
+							<a  href="PedidosController?type=ListarProducto&Id_CatProd=1" class="d-flex justify-content-center nav-link "><button class="figure-caption btn btnMenu w-25 rounded-pill">Ver Todo</button></a>
+					</figure>
+
+					<figure class="figure m-4">
+						<img src="./svg/salchipapa.jpg"
+							class="figure-img img-fluid rounded shadow" alt="...">					
+							<a  href="PedidosController?type=ListarProducto&Id_CatProd=2" class="d-flex justify-content-center nav-link "><button class="figure-caption btn btnMenu w-25 rounded-pill">Ver Todo</button></a>
+					</figure>
+
+					<figure class="figure m-4">
+						<img src="./svg/alitas.jpg"
+							class="figure-img img-fluid rounded shadow" alt="...">
+						<a  href="PedidosController?type=ListarProducto&Id_CatProd=3" class="d-flex justify-content-center nav-link "><button class="figure-caption btn btnMenu w-25 rounded-pill">Ver Todo</button></a>
+					</figure>
+
+				</div>
+
+				<div class="w-50">
+
+					<figure class="figure m-4">
+						<img src="./svg/Bebida.jpg"
+							class="figure-img img-fluid rounded shadow" alt="...">
+						<a  href="PedidosController?type=ListarProducto&Id_CatProd=5" class="d-flex justify-content-center nav-link "><button class="figure-caption btn btnMenu w-25 rounded-pill">Ver Todo</button></a>
+					</figure>
+
+					<figure class="figure m-4">
+						<img src="./svg/platoCarta.jpg "
+							class="figure-img img-fluid rounded shadow" alt="...">
+				
+							<a  href="PedidosController?type=ListarProducto&Id_CatProd=6" class="d-flex justify-content-center nav-link "><button class="figure-caption btn btnMenu w-25 rounded-pill">Ver Todo</button></a>
+						
+					</figure>
+
+					<figure class="figure m-4">
+						<img src="./svg/complementos.jpg"
+							class="figure-img img-fluid rounded shadow" alt="...">
+					
+							<a  href="PedidosController?type=ListarProducto&Id_CatProd=4" class="d-flex justify-content-center nav-link "><button class="figure-caption btn btnMenu w-25 rounded-pill">Ver Todo</button></a>
+						
+					</figure>
+
+				</div>
+
+			</div>
+
+		</div>
+		<%@ include file="snippets/footerIndexUser.jsp"%>
+
+	</div>
+</body>
+<!--ESTILOS JS-->
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/popper.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+
+</html>

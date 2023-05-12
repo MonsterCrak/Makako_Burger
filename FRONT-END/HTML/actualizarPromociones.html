@@ -1,0 +1,122 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Actualizar Promoción</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
+	rel="stylesheet">
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+<!-- Bootstrap icon -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<!-- Custom CSS  -->	
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body class="d-flex">
+	<style>
+	.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+		color: #fff;
+		font-weight: bold;
+		background-color: #B87400;
+	}
+	
+	.titulo {
+		font-family: 'Chau Philomene One', sans-serif;
+		color: #310D05;
+		font-size: 40px;
+		font-weight: bold;
+	}
+	</style>
+	<c:if test="${ nomUsuario == null || nomUsuario.getIdTipoUsuario() == 2 }">
+		<c:redirect url="indexUser.jsp"></c:redirect>
+	</c:if>
+	<%@ include file="snippets/navAdmin.jsp"%>
+	<main class="main">
+		<div class= "box info"> 
+			<div class="d-flex flex-column justify-content-center align-items-center header-info gap-3">
+				<c:choose>
+					<c:when test = "${promocion !=null}">
+						<input id= "idPromoAct" type="hidden" name="id" value="${promocion.getCodPromo()}" /> 
+						<h2 class="mb-0">Nombre de la Promoción: ${promocion.getNomPromo()}</h1>
+						<img class="img-prod" src="./img/promociones/${promocion.getImagenCombo()}.png"/>
+						<button id = "btn-update" class="btn-add">
+						Actualizar promoción
+						</button>
+			
+					</c:when>
+				</c:choose>
+		
+			</div>
+		
+			
+		</div>
+		<div class = "box info"> 	
+		<h2 class="mb-3">Productos de la promoción</h2>
+			<button id = "btn-add-prod" class="btn-add">
+				Agregar producto
+			</button>
+			<br>
+			<c:forEach items="${ detalle }" var="detallePromo">
+				<div class="d-row">
+				
+					<div class="data">
+						
+						<input type="hidden" name="idCatProd" value="${detallePromo.getProd().getId_CatProd()}"/>
+						<input type="hidden" name="idProd" value="${detallePromo.getCodPro()}"/>
+						
+						
+						<div class="img-prod">
+							<img alt="${detallePromo.getProd().getNomPro()}" src="./img/productos/${detallePromo.getProd().getImagenProd()}.png" />
+						</div>
+						<span>${ detallePromo.getCodPro()  }</span> 
+						<span>${ detallePromo.getProd().getNomPro() }</span>
+						<span>${ detallePromo.getCantidad() }</span>
+					</div>
+	
+					<div class="operations">
+						 <i class="icon-update bi bi-pencil-square"></i>
+						 <i class="icon-delete bi bi-trash-fill"></i>
+					</div>
+				</div>
+				
+			</c:forEach>	
+			<br>
+			<a href="PromocionesController?p=1">
+			<button id = "btn-update" class="btn-add">
+						Volver al listado de promociones
+			</button>
+			</a>
+		
+		</div>
+		
+
+
+	</main>
+	<%@ include file="snippets/modal-template.jsp"%>
+</body>
+<!-- Custom JavaScript -->
+<script type="module" src="./js/detallePromo.js"></script>
+<!--ESTILOS JS-->
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.9.7/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.9.7/plugin/customParseFormat.js"></script>
+</html>

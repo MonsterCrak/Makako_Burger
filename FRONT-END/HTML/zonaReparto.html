@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Zona de reparto</title>
+
+<!--CSS ESTILOS BOOTSTRAP-->
+<!--CSS ESTILOS BOOTSTRAP-->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap-theme.css">
+<link rel="stylesheet" href="./css/estilosUsuario.css">
+<link rel="" href="./css/bootstrap-utilities.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+	integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&family=Raleway:wght@500&family=Secular+One&display=swap"
+	rel="stylesheet">
+
+<!-- LINK DEL MAP -->
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+	integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+	crossorigin="" />
+
+<link rel="stylesheet" type="text/css"
+	href="./Leaflet-MiniMap-master/dist/Control.MiniMap.min.css" />
+<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+	integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+	crossorigin=""></script>
+	
+	
+<!-- Link de mapa CSS -->
+<link rel="stylesheet" type="text/css" href="./css/Mapa.css" />
+
+<!--CSS ESTILOS-->
+<link rel="stylesheet" href="./css/cssCarousel.css">
+</head>
+<body>
+
+	<%@ include file="snippets/headerIndexUser.jsp"%>
+	<div class="container mb-4">
+		<div class="border-bottom rounded-top cajaTitulo p-2">
+			<h1 class="titulo text-uppercase text-center">
+				 Zona de Reparto
+			</h1>
+		</div>
+	
+	<div id="map" class="img-fluid"></div>
+	</div>
+	
+	
+
+
+	<%@ include file="snippets/footerIndexUser.jsp"%>
+
+
+
+
+
+
+</body>
+<script src="Leaflet-MiniMap-master/dist/Control.MiniMap.min.js"></script>
+<script type="module" src="js/map.js"></script>
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/popper.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+
+</html>

@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+.carro {
+    background-color: #FABE1F;
+    border-radius: 15px;
+}
+
+.libro{
+	font-family: 'Chau Philomene One', sans-serif;
+	font-weight: light;
+	color:#310D05;
+}
+
+.titulo {
+	font-family: 'Chau Philomene One', sans-serif;
+	color: #401605;
+}
+
+.labelRecla{	
+	font-size: 12px;
+}
+
+.imagen{
+	width: 27vw;
+	height: 45vh;
+}
+
+.coment{
+	outline: 0px;
+}
+
+.borderMain{
+	border: 1px solid #FABE1F;
+	border-width: 3px;
+	
+}
+
+.H1Main{
+	background-color: #FABE1F;
+	font-family: 'Chau Philomene One', sans-serif;
+	text-transform: uppercase;
+	color: #310D05;
+	padding: 10px;
+}
+
+.inputs{
+	width: 100%;
+}
+
+.botonEnviar{
+	background-color: #320D05;
+	color:#FFF6EA;
+}
+
+.btnMenu{
+	background-color: #401605;
+	color:#FFF6EA;
+}
+
+.pagUsuario{
+	min-height: 100vh;
+}
+
+.content{
+	border: 2px solid #FABE1F;
+}
+
+.cajaTitulo{
+	background-color: #FABE1F;
+}
+
+.contenedor{
+	
+	max-width: 814px;
+	
+}
+
+.data {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+.d-row {
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+	background-color: var(--gray-light-color);
+	padding: 0.75rem;
+	border-radius: 10px;
+}
+.operations {
+	font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.operations > * {
+	cursor: pointer;
+	transition: opacity 300ms ease-in-out;
+}
+
+.operations > *:hover {
+	opacity: 0.75;
+}
