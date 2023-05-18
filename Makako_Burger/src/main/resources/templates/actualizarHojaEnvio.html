@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Actualizar hojas de envío</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- Bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/estilosAdmin.css">
+
+    <!-- SELECT 2 -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <!-- Or for RTL support -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+
+
+</head>
+<style>
+    .nav-pills .nav-link.active,
+    .nav-pills .show>.nav-link {
+        color: #fff;
+        font-weight: bold;
+        background-color: #B87400;
+    }
+
+    .titulo {
+        font-family: 'Chau Philomene One', sans-serif;
+        color: #310D05;
+        font-size: 40px;
+        font-weight: bold;
+    }
+</style>
+
+<body class="d-flex">
+    <c:if test="${ nomUsuario == null || nomUsuario.getIdTipoUsuario() == 2 }">
+        <c:redirect url="indexUser.jsp"></c:redirect>
+    </c:if>
+
+
+    <main class="main">
+        <div class="box info">
+            <div class="header-info">
+                <h2 class="mb-3">Actualizar hojas de envío</h2>
+
+                <form class="form-search align-items-center" method="POST">
+                    <select class="form-select p-2" name="cboEstado" id="cboPosition">
+                        <option value="all">Todos</option>
+
+                    </select>
+
+
+                    <select class="form-select" name="busqueda" id="busqueda">
+                        <option value="all">Todos</option>
+
+                    </select>
+
+
+                    <input class="form-control bg-primary text-white" type="submit" value="Aplicar Búsqueda" />
+
+
+
+                </form>
+            </div>
+
+
+            <hr class="separator">
+
+            <div class="body-info">
+                <div class="d-row">
+                    <div class="data">
+                        <span>No hay datos para mostrar</span>
+                    </div>
+                </div>
+
+
+                <div class="d-row">
+                    <div class="data">
+                        <input type="hidden" name="id" value="">
+                        <input type="hidden" name="codEstado" value="">
+                    </div>
+
+                    <div class="operations">
+                        <i class="icon-info bi bi-info-circle-fill"></i>
+                        <i class="icon-update bi bi-pencil-square"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-info">
+
+                <div>
+                    <ul class="pagination">
+
+                    </ul>
+                </div>
+
+                <span>Se encontraron ${ totalRegistro } resultados</span>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="module" src="./js/actualizarHojaEnvio.js"></script>
+<!-- Para el combo box chosen -->
+<script>
+
+    $(document).ready(function () {
+        $('#busqueda').select2({
+
+            theme: "bootstrap-5"
+        });
+    });
+</script>
+
+</html>

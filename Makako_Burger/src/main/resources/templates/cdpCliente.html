@@ -1,0 +1,123 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<!DOCTYPE html>
+		<html>
+
+		<head>
+			<meta charset="ISO-8859-1">
+
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<!--CSS ESTILOS BOOTSTRAP-->
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+			<link rel="stylesheet" href="./css/bootstrap.css">
+			<link rel="stylesheet" href="./css/bootstrap-theme.css">
+			<link rel="stylesheet" href="./css/bootstrapValidator.css">
+			<link rel="stylesheet" href="./css/estilosUsuario.css">
+			<link rel="" href="./css/bootstrap-utilities.css">
+			<link rel="" href="./css/bootstrap-utilities.min.css">
+			<link rel="stylesheet" href="./fonts/all.min.css">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&family=Raleway:wght@500&family=Secular+One&display=swap"
+				rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+				integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+				crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+			<!--CSS ESTILOS-->
+			<link rel="stylesheet" href="./css/cssCarousel.css">
+			<title>Comprobantes de Pago</title>
+		</head>
+
+		<body class="d-flex flex-column pagUsuario">
+
+
+			<!--CUERPO DE PÁGINA-->
+
+
+			<div class="container mb-4">
+
+				<div class="border-2 content">
+					<div class="border-bottom cajaTitulo p-2">
+						<h1 class="titulo text-uppercase text-center">
+							<i class="fa-solid fa-people-roof "></i> Comprobantes de Pago
+						</h1>
+					</div>
+					<div class="container my-2">
+
+						<form class="d-flex  flex-row justify-content-between gap-3">
+							<input type="hidden" name="type" value="listarCDPCli" /> <input class="form-control"
+								type="text" id="start-price" name="startPrice" placeholder="Precio de Inicio"
+								pattern="^\d{1,3}(.\d{1,2})?$"
+								title="Introduce el precio correctamente. Se acepta como máximo 3 enteros y 2 decimales que son establecidos por un '.'."
+								value="" /> <input class="form-control" type="text" id="end-price" name="endPrice"
+								placeholder="Precio Final" pattern="^\d{1,3}(.\d{1,2})?$"
+								title="Introduce el precio correctamente. Se acepta como máximo 3 enteros y 2 decimales que son establecidos por un '.'."
+								value="" /> <input class="form-control" type="date" id="start-date" name="startDate"
+								placeholder="Fecha de Inicio" min="2000-01-01" max="2030-12-31" value="" /> <input
+								class="form-control" type="date" id="end-date" name="endDate" placeholder="Fecha de Fin"
+								min="2000-01-01" max="2030-12-31" value="" />
+							<input class="btn btnMenu w-75" type="submit" value="Aplicar Búsqueda" />
+						</form>
+
+						<div class="my-2">
+							<h4>Venta Total: ${ totalVenta }</h4>
+							<div class="body-info">
+								<div class="d-row">
+									<div class="data">
+										<span>No hay datos para mostrar</span>
+									</div>
+								</div>
+
+								<div class="d-row bg-light border border-1 rounded-2 my-2">
+									<div class="data">
+										<input type="hidden" name="id" value="">
+										<span> <!-- ${ cdp.getCodComprobante() } --> </span>
+										<span> <!-- ${ cdp.getFchEmitido() } --> </span>
+										<span> <!-- ${ cdp.getDni() } --> </span>
+										<span> <!-- ${ cdp.getPrecTotPedido() } --> </span>
+									</div>
+
+									<div class="operations">
+										<form method="POST" action="ReportesController">
+											<input type="hidden" name="type" value="reporteCDP" />
+											<input type="hidden" name="id" value="${ cdp.getCodComprobante() }" />
+											<input class="btn-danger btn" type="submit" value="PDF" />
+										</form>
+
+									</div>
+								</div>
+							</div>
+							<div class="navigation-info">
+								<span>Navegando de
+									<!-- ${ pag } al ${ totalDePaginacion == 0 ? '1' : totalDePaginacion } --> </span>
+
+								<div>
+									<ul class="pagination justify-content-center">
+
+									</ul>
+								</div>
+
+								<span>Se encontraron ${ totalRegistro } resultados</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</body>
+		<!--ESTILOS JS-->
+		<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrapValidator.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="./js/popper.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+
+		</html>
