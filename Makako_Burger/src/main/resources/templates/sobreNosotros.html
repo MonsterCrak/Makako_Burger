@@ -1,0 +1,93 @@
+<html xmlns:th="http://www.thymeleaf.org"> 
+		<!DOCTYPE html>
+		<html>
+
+		<head>
+			<meta charset="ISO-8859-1">
+
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<!--CSS ESTILOS BOOTSTRAP-->
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+			<link rel="stylesheet" th:href="@{/resources/CSS/bootstrap.css}">
+			<link rel="stylesheet" th:href="@{/resources/CSS/bootstrap-theme.css}">
+			<link rel="stylesheet" th:href="@{/resources/CSS/estilosUsuario.css}">
+			<link rel="stylesheet" th:href="@{/resources/CSS/cssCarousel.css }">
+			<link rel="stylesheet" th:href="@{/resources/CSS/bootstrapValidator.css}">
+			<link rel="stylesheet" th:href="@{/resources/CSS/bootstrap-utilities.min.css}">
+			<link rel="stylesheet" th:href="@{/resources/CSS/Redes.css}">
+			<link rel="stylesheet" th:href="@{/resources/FONTS/all.min.css}">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link
+				href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&family=Raleway:wght@500&family=Secular+One&display=swap"
+				rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+				integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+				crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+			<title>SobreNosotros</title>
+		</head>
+
+		<div class="red">
+			<div id="facebook" class="fb"><a href="https://www.facebook.com/profile.php?id=100063526752640"
+					class="text-decoration-none text-white a" target="_blank"><i class="fa-brands fa-facebook "></i></a>
+			</div>
+			<div id="instagram"><a href="https://www.instagram.com/makakoburgercafe/"
+					class="text-decoration-none text-white" target="_blank"><i class="fa-brands fa-instagram "></i></a>
+			</div>
+			<div id="whatsapp"><a href="https://api.whatsapp.com/send?phone=51966313252"
+					class="text-decoration-none text-white" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+			</div>
+		</div>
+
+
+		<body class="d-flex flex-column pagUsuario">
+
+			<header th:insert="/plantilla/HeaderComponent :: menuCabecera"></header>
+
+			<!--CUERPO DE PÁGINA-->
+
+
+			<div class="container mb-4">
+
+				<div class="border-2 content">
+					<div class="border-bottom cajaTitulo p-2">
+						<h1 class="titulo text-uppercase text-center">
+							<i class="fa-solid fa-people-roof nosotros"></i> Sobre Nosotros
+						</h1>
+					</div>
+
+
+
+					<div class="container p-3 m-auto contenedor">
+						<c:forEach var="listarEstablecimiento" items="${ListarEstablecimiento}">
+							<div class="d-flex flex-column my-3 mx-auto ">
+
+								<h2 class="titulo text-uppercase border-bottom p-2">¿Donde nos ubicamos?</h2>
+								<h2 class="h4">
+
+									Nos puedes encontrar en ${listarEstablecimiento.getZona().getNombreZona() }
+
+								</h2>
+
+							</div>
+							<h1 class="titulo text-uppercase h2 border-bottom p-2">¿Qué es Makako Burger?</h1>
+							<h2 class="text-justify h4">${listarEstablecimiento.getSobreNosotros()}</h2>
+						</c:forEach>
+					</div>
+				</div>
+
+			</div>
+
+			<footer th:insert="/plantilla/FooterComponent :: footerPagina"></footer>
+		</body>
+		<!--ESTILOS JS-->
+		<script type="text/javascript" th:src="@{/resources/JS/bootstrap.min.js}"></script>
+		<script type="text/javascript" th:src="@{/resources/JS/jquery-1.10.2.min.js}"></script>
+		<script type="text/javascript" th:src="@{/resources/JS/bootstrapValidator.js}"></script>
+		<script type="text/javascript" th:src="@{/resources/JS/bootstrap.bundle.min.js}"></script>
+		<script type="text/javascript" th:src="@{/resources/JS/popper.min.js}"></script>
+
+		</html>

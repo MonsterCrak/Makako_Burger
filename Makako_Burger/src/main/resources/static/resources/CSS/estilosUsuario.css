@@ -111,3 +111,48 @@
 .operations > *:hover {
 	opacity: 0.75;
 }
+
+.btnUsuario{
+
+	width: 75%;
+	margin: auto;
+	background-color: #FFB002;
+	color: #330E00;
+}
+
+.arrowText {
+	position:relative;
+	color: #310D05;
+	margin: 20px;
+	height: 48px;
+	flex-grow: 0.6;
+	background: #FFB002;
+	border: 0.2 1px #FFB002 ;
+	float: left;
+	}
+	.arrowText:before, .arrowText:after {
+	content: " ";
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	}
+
+	.arrowRight:before, .arrowRight:after {
+		border-bottom: 41px solid transparent;
+		border-top: 41px solid transparent;
+		background-color: transparent;
+		top:-16px;
+		}
+		.arrowRight:after {
+		background-color: transparent;
+		border-left: 30px solid #FFB002;
+		right: -24px;
+		z-index: 2;
+		}
+		
+	   .arrowRight:before {
+		background-color: transparent;
+		right: -16.8px;
+		z-index: 1;
+		}
